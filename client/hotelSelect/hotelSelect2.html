@@ -1,0 +1,15 @@
+<!-- This is the /hotelSelect path. 
+If the user is logged in and hotel is selected, the page is skipped.
+If the hotel is not selected page populates itself-->
+<template name="hotelSelect">
+	<div class="hotels-info">
+		<h2>Hotel info will show up here</h2>
+	</div>
+	<div class="stay-details">
+		<input type="text" class="std-text" placeholder="Start Date"/>
+		<input type="text" class="std-text" placeholder="End Date"/>
+	</div>
+	<div class="button">
+		<a href="{{pathFor 'hotelSelect'}}"><h1>Check-In</h1></a>
+	</div>
+</template>
