@@ -1,0 +1,182 @@
+{  
+   "hotel":{  
+      "unique_name":"Marriot SF",
+      "display_name":"Marriot, San Francisco",
+      "address":{  
+         "street":"street",
+         "city":"San Francisco",
+         "state":"California",
+         "country":"USA",
+         "zip":"zip"
+      },
+      "contacts":[  
+         {  
+            "staff_id":"staff_id_foreign_key"
+         }
+      ],
+      "phones":[  
+         "no1",
+         "no2"
+      ],
+      "services":[  
+         {  
+            "service_name":"Housekeeping",
+            "service_description":"Housekeeping Services",
+            "contact":"<staff_id>",
+            "allowComment":"boolean",
+            "items":[  
+               {  
+                  "name":"Towels",
+                  "amount":"1200"
+               }
+            ],
+            "actions":{  
+               "notify":[  
+                  "email1",
+                  "email2"
+               ],
+               "show_on_dashboard":"true"
+            }
+         },
+         {  
+            "service_name":"RoomService",
+            "service_description":"Room Service",
+            "contact":"<staff_id>",
+            "allowComment":"boolean",
+            "items":[  
+               {  
+                  "name":"",
+                  "amount":"1200"
+               }
+            ],
+            "actions":{  
+               "notify":[  
+                  "email1",
+                  "email2"
+               ],
+               "show_on_dashboard":"true"
+            }
+         }
+      ]
+   }
+}
+
+
+{
+    "Users": {
+        "_id": "sSj4MojSqghGxAGFz",
+        "createdAt": "ISODate(2015-04-16T07: 41: 24.448Z)",
+        "services": {
+            "facebook": {
+                "accessToken": "CAAKDnJEayxQBABoYkDOP1hBlhZALOO2oZAvRuibmZCplVLLAQCXhFgbSqsp3QtcRyfZAkTs8VweiWEuH2qBLLFjcNpQFFZCsRfNrVto4ZApuRZAkXlixWSuKqjxiFAWZCaWcYgByMOXuYhTwDaSQuaBSvA2nllYsnyBjjJT4yTJtgaVVcjivs7OqNzqhyYqFNUSex6dRgLPxTzbJzZAIZB71sZC",
+                "expiresAt": 1434354082229,
+                "id": "10152693304081854",
+                "email": "padhyeav@gmail.com",
+                "name": "Aditya Padhye",
+                "first_name": "Aditya",
+                "last_name": "Padhye",
+                "link": "https://www.facebook.com/app_scoped_user_id/10152693304081854/",
+                "gender": "male",
+                "locale": "en_US"
+            },
+            "resume": {
+                "loginTokens": []
+            }
+        },
+        "profile": {
+            "name": "Aditya Padhye"
+        },
+        "currentHotel": {
+            "hotel_id": "<hotelid>",
+            "startdate": "<start_of_stay>",
+            "enddate": "<end_of_stay>"
+        }
+    },
+    "Staff": {
+        "_id": "<auto>",
+        "profile": {
+            "name": "<fullname>",
+            "username": "<emailid>",
+            "phone": "<phonenumber>"
+        },
+        "hotel_id": "<reference_to_hotelid>",
+        "stillEmployee": "boolean",
+        "access": "<m-manager,h-housekeeper>"
+    },
+    "Hotel": {
+        "unique_name": "<Uniquehotelname>",
+        "display_name": "<DisplayName>",
+        "address": {
+            "street": "<street>",
+            "city": "<city>",
+            "state": "<state>",
+            "country": "<country>",
+            "zip": "<zip>"
+        },
+        "contacts": [
+            {
+                "staff_id": "<staff_id_foreign_key>"
+            }
+        ],
+        "phones": [
+            "<no1>",
+            "<no2>"
+        ],
+        "services": [
+            {
+                "serivce_name": "<Housekeeping,Room_Serviceetc>",
+                "service_description": "<descriptionofparticularservice>",
+                "contact": "<staff_id>",
+                "allowComment": "<boolean>",
+                "items": [
+                    {
+                        "name": "<item_name>",
+                        "amount": "<amount>"
+                    }
+                ],
+                "actions": {
+                    "notify": [
+                        "<email1>",
+                        "<email2>"
+                    ]
+                }
+            }
+        ]
+    },
+    "ServiceHistory": {
+        "hotel_id": "<hotel_id>",
+        "user_id": "<user_id>",
+        "service_performed": {
+            "name": "<service_name>",
+            "actions": {
+                "notified": [
+                    "<email1>",
+                    "<email2>"
+                ]
+            }
+        },
+        "status": "<0-Pendingor1-InProgressor2-Completed>",
+        "createdAt": "<datetime>",
+        "rating": "<1to5>",
+        "comment": "<optionalforfuture>"
+    },
+    "<DumpintoDB>ServicesToDisplay": {
+        "serivce_name": "Housekeeping",
+        "service_description": "Request additional items for your room",
+        "allowComment": "true",
+        "items": [
+            {
+                "name": "Towels",
+                "amount": "10"
+            },
+            {
+                "name": "Toiletries",
+                "amount": "0"
+            },
+            {
+                "name": "Brush and Toothpaste",
+                "amount": "0"
+            }
+        ]
+    }
+}
