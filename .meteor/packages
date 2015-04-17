@@ -9,3 +9,5 @@ iron:router
 bootstrap
 accounts-facebook
 accounts-ui
+autopublish
+insecure
