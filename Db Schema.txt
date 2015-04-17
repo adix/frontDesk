@@ -98,8 +98,12 @@ ServicesToDisplay: {
 			amount: 10			
 			},
 			{
-			name: "",		
-			amount: 10			
+			name: "Toiletries",		
+			amount: 0		
+			},
+			{
+			name: "Brush and Toothpaste",		
+			amount: 0			
 			}
 	]}	
 }
