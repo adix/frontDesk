@@ -67,7 +67,7 @@ Hotel: {
 			],
 		actions: {
 			notify: [<email1>,<email2>],
-			show_on_dashboard:boolean
+			show_on_dashboard: <boolean>
 		}		
 	}]
 }
