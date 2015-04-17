@@ -1,0 +1,105 @@
+Whats already available in users:
+Users:{
+    "_id": "sSj4MojSqghGxAGFz",
+    "createdAt": ISODate("2015-04-16T07:41:24.448Z"),
+    "services": {
+        "facebook": {
+            "accessToken": "CAAKDnJEayxQBABoYkDOP1hBlhZALOO2oZAvRuibmZCplVLLAQCXhFgbSqsp3QtcRyfZAkTs8VweiWEuH2qBLLFjcNpQFFZCsRfNrVto4ZApuRZAkXlixWSuKqjxiFAWZCaWcYgByMOXuYhTwDaSQuaBSvA2nllYsnyBjjJT4yTJtgaVVcjivs7OqNzqhyYqFNUSex6dRgLPxTzbJzZAIZB71sZC",
+            "expiresAt": 1434354082229,
+            "id": "10152693304081854",
+            "email": "padhyeav@gmail.com",
+            "name": "Aditya Padhye",
+            "first_name": "Aditya",
+            "last_name": "Padhye",
+            "link": "https://www.facebook.com/app_scoped_user_id/10152693304081854/",
+            "gender": "male",
+            "locale": "en_US"
+        },
+        "resume": {
+            "loginTokens": []
+        }
+    },
+    "profile": {
+        "name": "Aditya Padhye"
+    },
+	currentHotel: {
+		hotel_id: <hotelid>,
+		startdate: <start_of_stay>,
+		enddate: <end_of_stay>
+	}
+}
+
+Staff: {
+	_id: <auto>,
+	"profile": {
+		name: <full name>,
+		username: <email id>,
+		phone: <phone number>,		
+	},
+	"hotel_id": <reference_to_hotelid>,
+	"stillEmployee": boolean,
+	"access":<m - manager, h - housekeeper>,
+}
+
+Hotel: {
+	unique_name: <Unique hotel name>,
+	display_name: <Display Name>,
+	address: { 
+		street: <street>,
+		city: <city>,
+		state:<state>,
+		country:<country>,
+		zip:<zip>,
+	},
+	contacts: [{
+		staff_id: <staff_id_foreign_key>		
+	}],
+	phones: [<no1>, <no2>],
+	services: [{
+		serivce_name: <Housekeeping, Room_Service etc>,
+		service_description: <description of particular service>,
+		contact: <staff_id>,
+		allowComment: <boolean>,
+		items: [ {
+				name: <item_name>,
+				amount: <amount>			
+			}
+			],
+		actions: {
+			notify: [<email1>,<email2>],
+			show_on_dashboard:boolean
+		}		
+	}]
+}
+
+ServiceHistory: {
+	hotel_id: <hotel_id>,
+	user_id: <user_id>,
+	service_performed: {
+		name: <service_name>,
+		actions: {
+			notified: [<email1>,<email2>],
+			showed_on_dashboard: boolean
+		}		
+	},
+	status: <0 - Pending or 1 - In Progress or 2 - Completed>,
+	createdAt: <datetime>,
+	rating: <1 to 5>,
+	comment: <optional for future>
+}
+
+<Dump into DB>
+ServicesToDisplay: {
+	serivce_name: "Housekeeping",
+	service_description: "Request additional items for your room",
+	allowComment: true,
+	items: [ {
+			name: "Towels",		
+			amount: 10			
+			},
+			{
+			name: "",		
+			amount: 10			
+			}
+	]}	
+}
