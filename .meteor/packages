@@ -9,4 +9,3 @@ iron:router
 bootstrap
 accounts-facebook
 accounts-ui
-insecure
