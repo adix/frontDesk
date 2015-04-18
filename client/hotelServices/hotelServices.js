@@ -1,5 +1,3 @@
-Hotels = new Mongo.Collection('hotels');
-
 Meteor.subscribe('hotels');
 
 Template.hotelServices.helpers({
