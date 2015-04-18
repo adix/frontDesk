@@ -1,0 +1,19 @@
+body #container {
+    max-width: 375px;
+    max-height: 667px;
+    margin: 0 auto;
+    /*overflow: hidden; Figure this out later*/
+  }
+
+#content-container {
+    max-width: 375px;
+    max-height: 667px;
+    margin: 0 auto;
+}
+
+.content-scrollable {
+  background: @color-empty;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}

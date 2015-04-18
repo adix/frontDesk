@@ -1,4 +1,13 @@
+
+//Just making user data available, Meteor.user() is already available on the clinet using {{currentUser}}
+Meteor.subscribe('userData');
+
+Meteor.subscribe('hotels');
+
 Template.hotelSelect.helpers({
-	currentEmail: Meteor.users.find({"services.facebook.name":"Nilay Panchal"})
-}
-);
+	allHotels: function(){
+		console.log("In the function");
+		console.log(Hotels.find().fetch());
+		return Hotels.find();		
+	}
+});

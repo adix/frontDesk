@@ -1,17 +1,44 @@
 <!-- This is the /hotelSelect path. 
 If the user is logged in and hotel is selected, the page is skipped.
 If the hotel is not selected page populates itself-->
+
 <template name="hotelSelect">
 	<div class="hotels-info">
 		<h2>Hotel info will show up here</h2>
 	</div>
+	<form class="hotelSelectForm">
 	<div class="stay-details">
-		<input type="text" class="std-text" placeholder="Start Date"/>
-		<input type="text" class="std-text" placeholder="End Date"/>
+		  <div class="row">
+		  Which hotel are you at? : 
+		  <select name="listOfHotels" class="dropdown">
+		  	{{#each allHotels}}	
+		  	  <option value='{{unique_name}}'>
+				{{display_name}}	
+			  </option>
+			{{/each}}		
+		  </select>
+		  </div>
+		  <div class="row">
+		  <div class="col-xs-4">
+			<input type="date" class="std-text" placeholder="Start Date"/>
+			</div>
+			<div class="col-xs-4">
+			<input type="date" class="std-text" placeholder="End Date"/>
+			</div>
+		  </div>
+		  <div class="row">
+		  <div class="col-xs-4">	
+			Email: <input type="label" name="userEmail" class="std-text" value="{{currentUser.services.facebook.email}}" disabled/>		
+		  </div>
+		  </div>
+		  <div class="row">
+		  <div class="col-xs-4">	
+			Phone: 	<input type="text" class="std-text" placeholder="Phone Number" disabled/>
+		  </div>
+		</div>
+		<div class="button">
+			<a href="{{pathFor 'currentlyAt'}}"><h1>Next</h1></a>
+		</div>	
 	</div>
-	<div class="button">
-		<a href="{{pathFor 'currentlyAt'}}"><h1>Next</h1></a>
-	</div>
-	{{currentEmail}}
-	{{> loginButtons}}
+	{{> loginButtons}}	
 </template>
