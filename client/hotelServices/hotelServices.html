@@ -1,21 +1,17 @@
 <template name="hotelServices">	
-	<h2>List of hotel services</h2>
-	<div class="row">		
-		<div class="col-xs-2"><a href="{{pathFor 'login'}}">Check-Out</a></div>
-		<div class="col-xs-8">Front Desk</div>
-		<div class="col-xs-2s">history</div>			
-	</div>
 	<div class="row">search bar here</div>
 	<div>	
-		<ul>		
-			{{#each services}}	
-				{{> serviceDisplay}}	
-			{{/each}}	
-		</ul>
-	</div>			
+		{{> serviceDisplay}}
+	</div>				
 </template>
 
 <!--Cuurently prints hotel names. Have to modify to do so for the service.-->
 <template name="serviceDisplay">
-		<li>{{display_name}}</li>
+	<ul>
+		{{#each hotels}}	
+			{{#each services}}
+				<li>{{service_name}}</li>					
+			{{/each}}	
+		{{/each}}
+	</ul>		
 </template>
