@@ -1,3 +1,5 @@
+//Hotel Examples
+//1) Marriot San Francisco
 {  
    "hotel":{  
       "unique_name":"Marriot SF",
@@ -8,6 +10,75 @@
          "state":"California",
          "country":"USA",
          "zip":"zip"
+         "lat":
+         "lng":
+      },
+      "contacts":[  
+         {  
+            "staff_id":"staff_id_foreign_key"
+         }
+      ],
+      "phones":[  
+         "no1",
+         "no2"
+      ],
+      "services":[  
+         {  
+            "service_name":"Housekeeping",
+            "service_description":"Housekeeping Services",
+            "contact":"<staff_id>",
+            "allowComment":"boolean",
+            "items":[  
+               {  
+                  "name":"Towels",
+                  "amount":"1200"
+               }
+            ],
+            "actions":{  
+               "notify":[  
+                  "email1",
+                  "email2"
+               ],
+               "show_on_dashboard":"true"
+            }
+         },
+         {  
+            "service_name":"RoomService",
+            "service_description":"Room Service",
+            "contact":"<staff_id>",
+            "allowComment":"boolean",
+            "items":[  
+               {  
+                  "name":"",
+                  "amount":"1200"
+               }
+            ],
+            "actions":{  
+               "notify":[  
+                  "email1",
+                  "email2"
+               ],
+               "show_on_dashboard":"true"
+            }
+         }
+      ]
+   }
+}
+
+
+//2) Renaissance Pittsburgh Hotel
+{  
+   "hotel":{  
+      "unique_name":"Renaissance Pitt",
+      "display_name":"Renaissance Pittsburgh Hotel",
+      "address":{  
+         "street":"street",
+         "city":"Pittsburgh",
+         "state":"Pennsylvania",
+         "country":"USA",
+         "zip":"zip",
+         "lat":40.4450877,
+         "lng":-79.9809263,
       },
       "contacts":[  
          {  
