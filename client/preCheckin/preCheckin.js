@@ -2,16 +2,6 @@
 //Need to change it to the only currently selected hotel?
 Meteor.subscribe('hotels');
 
-//This needs to be called only after the client accespts location sharing.
-//Send the users and hotels coordinates.
-Meteor.call("getETA", function(error, results) {
-   	console.log(results.data.rows[0].elements[0]); //results.data should be a JSON object
-   	// cant return as async call
-  	//return results.data.rows[0].elements[0];
-   	//setting session variable
-   	Session.set('eta',results.data.rows[0].elements[0])
-});
-    
 Template.preCheckin.helpers({
 	//
 	loc : function() {
@@ -32,6 +22,15 @@ Template.preCheckin.helpers({
 
 Template.preCheckin.events({	
 	'click .share-location': function(){
+		//Call to mehtod to get eta
+		Meteor.call("getETA", function(error, results) {
+   		console.log(results.data.rows[0].elements[0]); //results.data should be a JSON object
+   		// cant return as async call
+  		//return results.data.rows[0].elements[0];
+   		//setting session variable
+   		Session.set('eta',results.data.rows[0].elements[0])
+		});
+		
 		console.log("Share Location clicked");		
 		//get location using mdg:location package
 		var location = Geolocation.latLng() || { lat: 0, lng: 0 };
