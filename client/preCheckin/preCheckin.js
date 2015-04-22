@@ -1,4 +1,9 @@
+//subscribing to all hotels Collections
+//Need to change it to the only currently selected hotel?
+Meteor.subscribe('hotels');
+
 //This needs to be called only after the client accespts location sharing.
+//Send the users and hotels coordinates.
 Meteor.call("getETA", function(error, results) {
    	console.log(results.data.rows[0].elements[0]); //results.data should be a JSON object
    	// cant return as async call
@@ -15,7 +20,13 @@ Template.preCheckin.helpers({
 	},	
 	eta	: function(){
 		return Session.get('eta');
-		console.log(Session.get('eta'));
+		console.log(Session.get('eta'));		
+	},
+	//fetch only users current hotel
+	hotels: function(){
+		console.log("In the function");
+		console.log(Hotels.find().fetch());
+		return Hotels.find();		
 	}
 })
 

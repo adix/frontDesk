@@ -10,6 +10,11 @@
 
 	<!--Implement the below in a Pop up-->
 	<div name="location-view" class="location-view">		
+		{{#each hotels}}	
+			{{address.lat}}
+			{{address.lng}}	
+		{{/each}}
+		<br>
 		<!--
 		Getting estimated time of arrival and distance
 		Currently printing on Client.
@@ -22,6 +27,8 @@
 		{{loc.lat}}
 		{{loc.lng}}
 		-->
+
+		<!--Doesnt work on android device. Maybe because of an external api call?-->
 		<img src="http://maps.googleapis.com/maps/api/staticmap?center={{loc.lat}},{{loc.lng}}&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7C{{loc.lat}},{{loc.lng}}" />
 	</div>
 

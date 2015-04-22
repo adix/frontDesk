@@ -1,5 +1,5 @@
 Meteor.methods({
-    'getETA' : function () {
+    'getETA' : function (lat,lng) {
         //this.unblock() causes subsequent methods to run in different fibers
         //this.unblock();
         //console.log(temp);
