@@ -1,17 +1,13 @@
 <template name="hotelServices">	
 	<div class="row">search bar here</div>
 	<div>	
-		{{> serviceDisplay}}
-	</div>				
-</template>
-
-<!--Cuurently prints hotel names. Have to modify to do so for the service.-->
-<template name="serviceDisplay">
-	<ul>
+		<ul>
+		<!--change each hotel to show only the current hotels services.-->
 		{{#each hotels}}	
 			{{#each services}}
 				<li>{{service_name}}</li>					
 			{{/each}}	
 		{{/each}}
-	</ul>		
+	</ul>	
+	</div>				
 </template>

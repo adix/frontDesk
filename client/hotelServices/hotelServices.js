@@ -1,6 +1,6 @@
 Meteor.subscribe('hotels');
 
-Template.serviceDisplay.helpers({
+Template.hotelServices.helpers({
 	hotels: function(){
 		console.log("In the function");
 		console.log(Hotels.find().fetch());
