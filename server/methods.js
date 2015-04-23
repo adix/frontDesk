@@ -1,7 +1,13 @@
 Meteor.methods({
-    'getETA' : function (lat,lng) {
+    'getETA' : function (userLat,userLng,hotelLat,hotelLng) {
         //this.unblock() causes subsequent methods to run in different fibers. Dont know what the use of this is exactly.
         this.unblock();
-        return  Meteor.http.call("GET", "https://maps.googleapis.com/maps/api/distancematrix/json?origins=41.43206,-81.38992&destinations="+lat+","+lng);        
-    }
+        return  Meteor.http.call("GET", "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+userLat+","+userLng+"&destinations="+hotelLat+","+hotelLng);        
+    },    
+    'addUserLocation' : function(userLat, userLng) {
+    	//console.log("In assUserLocation");
+    	//console.log(userLat);
+    	//console.log(userLng);    	
+
+    }  
 });
