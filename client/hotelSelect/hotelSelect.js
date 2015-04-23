@@ -11,3 +11,13 @@ Template.hotelSelect.helpers({
 		return Hotels.find();		
 	}
 });
+
+Template.hotelSelect.events({
+    'submit .hotelSelectForm': function( event ){   // also tried just 'submit', both work for me!
+        console.log( 'Submitting form!' + event.target.startdate.value);
+        event.preventDefault();
+        event.stopPropagation();
+        Router.go('/currentlyAt');
+        return false;
+      }
+});
