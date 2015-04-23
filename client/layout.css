@@ -2,6 +2,7 @@ body #container {
     max-width: 375px;
     max-height: 667px;
     margin: 0 auto;
+    background-color:#FFF8DC;	
     /*overflow: hidden; Figure this out later*/
   }
 
