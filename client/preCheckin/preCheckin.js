@@ -1,6 +1,7 @@
 //subscribing to all hotels Collections
 //Need to change it to the only currently selected hotel?
 Meteor.subscribe('hotels');
+//Meteor.subscribe('userData');
 
 Template.preCheckin.helpers({
 	//
@@ -41,9 +42,15 @@ Template.preCheckin.events({
 		var userLng = location.lng;
 
 		//Setting current location of user in user database.
-		Meteor.call("addUserLocation", userLat, userLng);
+		Meteor.users.update({ _id: Meteor.userId()}, 
+        	{$set: 
+        		{
+        			"profile.address.lat":userLat,
+        			"profile.address.lng":userLng       				
+        		}
+        	});
 
-		//Setting eta of user in pre-checkin service in the hotel database.
+		console.log(Meteor.user().profile.currentHotel.hotel_id);		
 
 		//Call to mehtod to get eta
 		Meteor.call("getETA", userLat, userLng, hotelLat, hotelLng, function(error, results) {
@@ -54,6 +61,9 @@ Template.preCheckin.events({
    			Session.set('eta',results.data.rows[0].elements[0])
 		});
 
+		//Setting eta of user in pre-checkin service in the hotel database.			
+		
+		Meteor.call("updateUserEta",Session.get("eta"));
 				
 		//Set location to session variable
 		Session.set("location",location)
