@@ -70,8 +70,7 @@ Hotel: {
 			show_on_dashboard: <boolean>
 		}		
 	}],
-	ServiceHistory: [{
-	hotel_id: <hotel_id>,
+	ServiceHistory: [{	
 	user_id: <user_id>,
 	service_performed: {
 		name: <service_name>,
