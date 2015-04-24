@@ -20,13 +20,13 @@ Users:{
         }
     },
     "profile": {
-        "name": "Aditya Padhye"
-    },
-	currentHotel: {
+        "name": "Aditya Padhye",
+        currentHotel: {
 		hotel_id: <hotelid>,
 		startdate: <start_of_stay>,
 		enddate: <end_of_stay>
-	}
+	  }
+    },
 }
 
 Staff: {
@@ -69,10 +69,8 @@ Hotel: {
 			notify: [<email1>,<email2>],
 			show_on_dashboard: <boolean>
 		}		
-	}]
-}
-
-ServiceHistory: {
+	}],
+	ServiceHistory: [{
 	hotel_id: <hotel_id>,
 	user_id: <user_id>,
 	service_performed: {
@@ -80,12 +78,18 @@ ServiceHistory: {
 		actions: {
 			notified: [<email1>,<email2>],
 			showed_on_dashboard: boolean
-		}		
+		},
+		items	: [ {
+				name: <item_name>,
+				amount: <amount>			
+		}
+		],	
 	},
 	status: <0 - Pending or 1 - In Progress or 2 - Completed>,
 	createdAt: <datetime>,
 	rating: <1 to 5>,
 	comment: <optional for future>
+   }]
 }
 
 <Dump into DB>

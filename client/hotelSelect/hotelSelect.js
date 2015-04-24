@@ -14,7 +14,13 @@ Template.hotelSelect.helpers({
 
 Template.hotelSelect.events({
     'submit .hotelSelectForm': function( event ){   // also tried just 'submit', both work for me!
-        console.log( 'Submitting form!' + event.target.startdate.value);
+        Meteor.users.update({ _id: Meteor.userId() }, 
+        	{$set: {"profile.currentHotel":
+        				{hotel_id: event.target.listOfHotels.value,
+        				stateDate: event.target.startdate.value,
+        			    endDate: event.target.enddate.value}
+        		   }
+        	});
         event.preventDefault();
         event.stopPropagation();
         Router.go('/currentlyAt');
