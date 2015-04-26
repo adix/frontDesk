@@ -11,3 +11,5 @@ accounts-facebook
 accounts-ui
 mdg:geolocation
 http
+tracker
+reactive-var

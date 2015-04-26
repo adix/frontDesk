@@ -16,11 +16,7 @@ Template.preCheckin.helpers({
 	//change fetch only users current hotel
 	hotels: function(){
 		//console.log("In the function");
-		//console.log(Hotels.find().fetch());
-		return Hotels.find();		
-	}
-})
-
+		//console.log(Hotels.find().fetch()); 
 
 //How to write small modular functions to do everything that you have to do.
 Template.preCheckin.events({	
@@ -35,12 +31,25 @@ Template.preCheckin.events({
 		console.log("Fetching location from mdg:geolocation");
 		
 		//Need to fix multiple clicks to get location and find distance
-		var location = Geolocation.latLng() || { lat: 0, lng: 0 };
-		var error = Geolocation.error;
+		//var location = Geolocation.latLng() || { lat: 0, lng: 0 };
+		//var error = Geolocation.error;
 
+		
+		//Session.set("location",location);
+
+		Tracker.autorun(function () {	
+			var location = new ReactiveVar(0);
+			location.set(Geolocation.latLng());		
+			Session.set("loc",location);
+			console.log(location);
+		});
+
+		var location = Session.get("loc");
 		var userLat = location.lat;
 		var userLng = location.lng;
 
+		console.log(userLat);
+		console.log(userLng);
 		//Setting current location of user in user database.
 		Meteor.users.update({ _id: Meteor.userId()}, 
         	{$set: 
@@ -60,6 +69,8 @@ Template.preCheckin.events({
    			//setting session variable
    			Session.set('eta',results.data.rows[0].elements[0])
 		});
+
+
 
 		//Setting eta of user in pre-checkin service in the hotel database.			
 		
