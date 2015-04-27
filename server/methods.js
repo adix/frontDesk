@@ -14,7 +14,7 @@ Meteor.methods({
         //var id; id = new ObjectID(Meteor.user().profile.currentHotel.hotel_id); 
         //console.log(id);
         return Hotels.update({ _id: new Meteor.Collection.ObjectID(Meteor.user().profile.currentHotel.hotel_id)},
-            {$addToSet:{ServiceHistory:{user_id:Meteor.userId(),service_performed:{name: "PreCheckin",eta:{distance: eta.distance.text,duration: eta.duration.text},createdAt:Date()}}}}
+            {$addToSet:{ServiceHistory:{user_id:Meteor.userId(),user_name:Meteor.user().profile.name,service_performed:{name: "PreCheckin",eta:{distance: eta.distance.text,duration: eta.duration.text},createdAt:Date()}}}}
         );
     },
     //{ SomeUpdate: function(upd) { 
