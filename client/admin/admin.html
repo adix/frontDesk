@@ -1,0 +1,25 @@
+<template name="admin">
+	<div class="row">	
+		
+		{{#each hotels}}	
+			{{#each ServiceHistory}}
+			<div class="col-md-8">	
+				{{user_name}}
+				<br>
+				{{service_performed.name}}
+				{{service_performed.eta.duration}}
+				{{service_performed.eta.distance}}
+				<br>
+			</div>						
+			{{/each}}
+		{{/each}}					
+		<div class="col-md-4">
+			
+		</div>
+	</div>
+</template>
+
+
+<template name="service">
+	
+</template>
