@@ -1,0 +1,16 @@
+body #container-admin {
+    margin: 0 auto;
+    background-color:#FFF8DC;	
+    /*overflow: hidden; Figure this out later*/
+  }
+
+#content-container-admin {
+    margin: 0 auto;
+}
+
+.content-scrollable {
+  background: @color-empty;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
