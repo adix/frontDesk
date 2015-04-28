@@ -2,14 +2,19 @@ body #container {
     max-width: 375px;
     max-height: 667px;
     margin: 0 auto;
-    background-color:#FFF8DC;	
+    background-color:#FFFFFF;
+    color:#000000;	
+
     /*overflow: hidden; Figure this out later*/
   }
 
 #content-container {
+    color:#000000;
+    background-color: #FFFFF0;
     max-width: 375px;
     max-height: 667px;
     margin: 0 auto;
+  
 }
 
 .content-scrollable {

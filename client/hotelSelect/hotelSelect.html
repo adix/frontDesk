@@ -4,12 +4,12 @@ If the hotel is not selected page populates itself-->
 
 <template name="hotelSelect">
 	<div class="hotels-info">
-		<h2>Hotel info will show up here</h2>
+		<h2>Profile Information</h2>
 	</div>
 	<form class="hotelSelectForm" action ="{{pathFor 'currentlyAt'}}">
 	<div class="stay-details">
-		  <div class="row">
-		  Which hotel are you at? : 
+		  <div class="row-xs-4">
+		  Hotel Name : 
 		  <select name="listOfHotels" class="dropdown">
 		  	{{#each allHotels}}	
 		  	  <option value='{{_id.valueOf}}'>
