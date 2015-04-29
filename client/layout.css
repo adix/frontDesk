@@ -4,7 +4,7 @@ body #container {
     margin: 0 auto;
     background-color:#FFFFFF;
     color:#000000;	
-
+    border-style: solid;
     /*overflow: hidden; Figure this out later*/
   }
 

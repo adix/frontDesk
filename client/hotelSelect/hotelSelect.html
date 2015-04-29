@@ -6,7 +6,7 @@ If the hotel is not selected page populates itself-->
 	<!--<div class="hotels-info">
 		<h2>Profile Information</h2>
 	</div>-->
-	<form class="hotelSelectForm" action ="{{pathFor 'currentlyAt'}}">
+	<form class="hotelSelectForm" action ="{{pathFor 'currentlyAt'}}" placeholder="Hotel Name">
 	<div id="fillin">
 	<div class="stay-details">
 		  <div class="row-xs-4">
@@ -14,7 +14,7 @@ If the hotel is not selected page populates itself-->
 		  <select name="listOfHotels" class="dropdown">
 		  	{{#each allHotels}}	
 		  	  <option value='{{_id.valueOf}}'>
-				{{display_name}}	
+				Hotel Name	
 			  </option>
 			{{/each}}		
 		  </select>
