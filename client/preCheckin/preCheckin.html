@@ -4,35 +4,19 @@
 	</div>
 	<div><h2>When will you arive?</h2></div>
 		<div>
-			<input type="text" placeholder="Estimated Arrival Time"/><br>
-			<input type="button" name="Share Location" value="Share Location" class="share-location"/>
-			Click Multiple Times (Need to fix)
+			<input type="text" placeholder="Estimated Arrival Time"/><br>					
 	</div>
 
 	<!--Implement the below in a Pop up-->
 	<div name="location-view" class="location-view">		
-		<!--
-		{{#each hotels}}	
-			{{address.lat}}
-			{{address.lng}}	
-		{{/each}}
-		<br>
-		-->
-		<!--
-		Getting estimated time of arrival and distance
-		Currently printing on Client.
-		This needs to be sent to the hotel dashboard.
-		-->
+		
 		{{eta.distance.text}}
 		<br>
 		{{eta.duration.text}}
-		<!-- Latitude and Longitude variables.
-		{{loc.lat}}
-		{{loc.lng}}
-		-->
 
 		<!--Doesnt work on android device. Maybe because of an external api call?-->
 		<img src="http://maps.googleapis.com/maps/api/staticmap?center={{loc.lat}},{{loc.lng}}&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7C{{loc.lat}},{{loc.lng}}" />
+		<input type="button" name="Share Location" value="Share Location" class="share-location"/>
 	</div>
 
 </template>

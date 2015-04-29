@@ -7,7 +7,9 @@ Template.preCheckin.helpers({
 	//
 	loc : function() {
 		//return session variable as loc
-		return Session.get('location');		
+		Session.set('location',Geolocation.latLng() || { lat: 0, lng: 0 });
+		//return Geolocation.latLng() || { lat: 0, lng: 0 }
+		return Session.get('location');
 	},	
 	eta	: function(){
 		return Session.get('eta');
@@ -33,25 +35,10 @@ Template.preCheckin.events({
 		console.log("Share Location clicked");		
 		console.log("Fetching location from mdg:geolocation");
 		
-		//Need to fix multiple clicks to get location and find distance
-		var location = Geolocation.latLng() || { lat: 0, lng: 0 };
-		var error = Geolocation.error;
-
-		
-		//Session.set("location",location);
-
-		/*Reactive method implementation try
-		
-		Tracker.autorun(function () {	
-			var location = new ReactiveVar(0);
-			location.set(Geolocation.latLng());		
-			Session.set("loc",location);
-			console.log(location);
-		});
-		
+		var location = Session.get('location');
+		//var error = Geolocation.error
 
 		//var location = Session.get("loc");
-		*/
 
 		var userLat = location.lat;
 		var userLng = location.lng;		
@@ -76,18 +63,12 @@ Template.preCheckin.events({
    			//Cant return as async call but can set it directly in the database
   			//return results.data.rows[0].elements[0];
    			//setting session variable
-   			Session.set('eta',results.data.rows[0].elements[0])
+   			Session.set('eta',results.data.rows[0].elements[0]);
+   			//Setting eta of user in pre-checkin service in the hotel database.			
+   			Meteor.call("updateUserEta",Session.get("eta"));
 		});
 
-
-
-		//Setting eta of user in pre-checkin service in the hotel database.			
-		
-		Meteor.call("updateUserEta",Session.get("eta"));
-				
-		//Set location to session variable
-		Session.set("location",location)
-		Session.set("location-error",error)
+		console.log(Session.get('eta'));
 	}	
 })
 
