@@ -3,10 +3,11 @@ If the user is logged in and hotel is selected, the page is skipped.
 If the hotel is not selected page populates itself-->
 
 <template name="hotelSelect">
-	<div class="hotels-info">
+	<!--<div class="hotels-info">
 		<h2>Profile Information</h2>
-	</div>
+	</div>-->
 	<form class="hotelSelectForm" action ="{{pathFor 'currentlyAt'}}">
+	<div id="fillin">
 	<div class="stay-details">
 		  <div class="row-xs-4">
 		  Hotel Name : 
@@ -18,22 +19,30 @@ If the hotel is not selected page populates itself-->
 			{{/each}}		
 		  </select>
 		  </div>
+		  <div class ="row">
+		  <div class ="col">
+		  <input class="textbox" type="text" placeholder="Hotel Name"> 
+		</div>
+		</div>
 		  <div class="row">
 		  	<input name="startdate" type="date" class="std-text col-xs-6" placeholder="Start Date" required/>
 			<input name="enddate" type="date" class="std-text col-xs-6" placeholder="End Date" required/>
 		  </div>
 		  <div class="row">
-		  <div class="col-xs-4">	
-			Email: <input type="label" name="userEmail" class="std-text" value="{{currentUser.services.facebook.email}}" disabled/>		
+		  <div class="col">	
+			<input type="label" name="userEmail" class="std-text" value="{{currentUser.services.facebook.email}}" disabled/>		
 		  </div>
 		  </div>
 		  <div class="row">
-		  <div class="col-xs-4">	
-			Phone: 	<input type="text" class="std-text" placeholder="Phone Number" disabled/>
+		  <div class="col">	
+			<input type="text" class="std-text" placeholder="Phone Number" disabled/>
 		  </div>
 		</div>
+
 		<input type="submit" class="button" value="Submit">				
 	</div>
+</div>
+
 	</form>	
 	{{> loginButtons}}	
 </template>
