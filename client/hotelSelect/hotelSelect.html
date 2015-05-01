@@ -14,7 +14,7 @@ If the hotel is not selected page populates itself-->
 		  <select name="listOfHotels" class="dropdown">
 		  	{{#each allHotels}}	
 		  	  <option value='{{_id.valueOf}}'>
-				Hotel Name	
+				{{display_name}}
 			  </option>
 			{{/each}}		
 		  </select>
