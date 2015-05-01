@@ -1,29 +1,55 @@
 <template name="preCheckin">
 	<!-- part of dynamic layout -->
-	<div class="row">		
-		<div class="col-xs-2"><a href="{{pathFor 'login'}}">Check-Out</a></div>
-		<div class="col-xs-8">Front Desk</div>
-		<div class="col-xs-2">history</div>			
-	</div>	
-	
-	<div class="left-corner">
-		<a href="{{pathFor 'currentlyAt'}}"><h1>Back</h1></a>
-	</div>
-	<div><h2>When will you arive?</h2></div>
-		<div>
-			<input type="text" placeholder="Estimated Arrival Time"/><br>					
+		<div class="col-xs-2 nopadding"><a href="{{pathFor 'currentlyAt'}}"><img src='img/app/athotel.png'></a></div>
+		<div class="col-xs-8 nopadding">Where am I?</div>
+		<div class="col-xs-2 nopadding">history</div>			
+
+	<div name="row">
+		<div name="col-xs-12">
+			<img src="http://maps.googleapis.com/maps/api/staticmap?center={{loc.lat}},{{loc.lng}}&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7C{{loc.lat}},{{loc.lng}}" />
+		</div>		
 	</div>
 
-	<!--Implement the below in a Pop up-->
-	<div name="location-view" class="location-view">		
-		
-		{{eta.distance.text}}
-		<br>
-		{{eta.duration.text}}
+	{{> tabs}}		
+	<!--Implement the below in a Pop up-->	
+	<input type="button" name="Share Location" value="Share Location" class="share-location"/>
 
-		<!--Doesnt work on android device. Maybe because of an external api call?-->
-		<img src="http://maps.googleapis.com/maps/api/staticmap?center={{loc.lat}},{{loc.lng}}&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7C{{loc.lat}},{{loc.lng}}" />
-		<input type="button" name="Share Location" value="Share Location" class="share-location"/>
+</template>
+
+
+
+<template name="tabs">
+    <ul class='tabs'>
+        <li activetab='tab1'> ---- Calculate Time ---- </li>
+        <li activetab='tab2'> ---- Input Time ---- </li>     
+    </ul>
+    <div>
+        {{#if activeTabIs "tab1"}}
+            {{> tabBody1}}
+        {{/if}}
+        {{#if activeTabIs "tab2"}}
+            {{> tabBody2}}
+        {{/if}}
+    </div>
+</template>
+
+
+<template name="tabBody1">
+	Tap to Agree to Share Location
+	<input type="button" name="Share Location" value="Enable Sharing" class="enable-location"/>
+	<div name="location-view" class="location-view">			
+		<div name="col-xs-12">
+			{{eta.distance.text}}
+			<br>
+			{{eta.duration.text}}
+		</div>		
+		<!--Doesnt work on android device. Maybe because of an external api call?-->				
 	</div>
+</template>
 
+<template name="tabBody2">
+	Please let us know your approximate arrival time
+	<div>
+		<input type="text" placeholder="Estimated Arrival Time"/><br>					
+	</div>
 </template>

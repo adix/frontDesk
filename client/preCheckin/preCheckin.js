@@ -3,6 +3,18 @@
 Meteor.subscribe('hotels');
 //Meteor.subscribe('userData');
 
+Template.tabs.events({
+	'click .tabs li' : function (event, template) {
+		Session.set("activeTab", $(event.currentTarget).attr("activetab"));
+  }
+});
+
+
+Template.tabs.activeTabIs = function(tab) {
+ 	return Session.get("activeTab") === tab;
+}
+
+
 Template.preCheckin.helpers({
 	//
 	loc : function() {
@@ -10,11 +22,7 @@ Template.preCheckin.helpers({
 		Session.set('location',Geolocation.latLng() || { lat: 0, lng: 0 });
 		//return Geolocation.latLng() || { lat: 0, lng: 0 }
 		return Session.get('location');
-	},	
-	eta	: function(){
-		return Session.get('eta');
-		console.log(Session.get('eta'));		
-	},
+	},		
 	//change fetch only users current hotel
 	hotels: function(){
 		//console.log("In the function");
@@ -23,9 +31,16 @@ Template.preCheckin.helpers({
 	}
 })
 
+Template.tabBody1.helpers({
+	eta	: function(){
+		return Session.get('eta');
+		console.log(Session.get('eta'));		
+	},
+})
+
 //How to write small modular functions to do everything that you have to do.
 Template.preCheckin.events({	
-	'click .share-location': function(){		
+	'click .enable-location': function(){		
 		var hotels = Hotels.find().fetch();
 		
 		//Currently gets address of first hotel. Need to change it to fetch current hotel from current user profile.
@@ -65,10 +80,13 @@ Template.preCheckin.events({
    			//setting session variable
    			Session.set('eta',results.data.rows[0].elements[0]);
    			//Setting eta of user in pre-checkin service in the hotel database.			
-   			Meteor.call("updateUserEta",Session.get("eta"));
+   			//Meteor.call("updateUserEta",Session.get("eta"));
 		});
 
 		console.log(Session.get('eta'));
-	}	
+	},
+	'click .share-location': function(){
+		Meteor.call("updateUserEta",Session.get("eta"));
+	}
 })
 
