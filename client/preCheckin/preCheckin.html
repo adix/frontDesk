@@ -1,15 +1,22 @@
 <template name="preCheckin">
 	<!-- part of dynamic layout -->
 		<div class="col-xs-2 nopadding"><a href="{{pathFor 'currentlyAt'}}"><img src='img/app/athotel.png'></a></div>
-		<div class="col-xs-8 nopadding">Where am I?</div>
+		<div class="col-xs-8 nopadding">Front Desk</div>
 		<div class="col-xs-2 nopadding">history</div>			
 
 	<div name="row">
 		<div name="col-xs-12">
-			<img src="http://maps.googleapis.com/maps/api/staticmap?center={{loc.lat}},{{loc.lng}}&zoom=15&size=600x300&maptype=roadmap&markers=color:blue%7C{{loc.lat}},{{loc.lng}}" />
+			<img src="http://maps.googleapis.com/maps/api/staticmap?center={{loc.lat}},{{loc.lng}}&size=600x400&maptype=roadmap&markers=color:blue%7C{{loc.lat}},{{loc.lng}}&markers=color:green%7Clabel:G%7C{{hotelAddress.lat}},{{hotelAddress.lng}}" />
 		</div>		
 	</div>
 
+	<!--
+	<div name="row">
+		<img src ="https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C{{loc.lat}},{{loc.lng}}&markers=color:green%7Clabel:G%7C{{hotelAddress.lat}},{{hotelAddress.lng}}">
+		{{hotelAddress.lat}}
+		{{hotelAddress.lng}}
+	</div>
+	-->
 	{{> tabs}}		
 	<!--Implement the below in a Pop up-->	
 	<input type="button" name="Share Location" value="Share Location" class="share-location"/>
@@ -20,8 +27,8 @@
 
 <template name="tabs">
     <ul class='tabs'>
-        <li activetab='tab1'> ---- Calculate Time ---- </li>
-        <li activetab='tab2'> ---- Input Time ---- </li>     
+        <li activetab='tab1'> ---- Input Time ---- </li>
+        <li activetab='tab2'> ---- Calculate Time ---- </li>     
     </ul>
     <div>
         {{#if activeTabIs "tab1"}}
@@ -33,23 +40,23 @@
     </div>
 </template>
 
-
 <template name="tabBody1">
+	Please let us know your approximate arrival time
+	<div>
+		<input type="text" placeholder="Estimated Arrival Time"/><br>					
+	</div>
+</template>
+
+<template name="tabBody2">
 	Tap to Agree to Share Location
 	<input type="button" name="Share Location" value="Enable Sharing" class="enable-location"/>
-	<div name="location-view" class="location-view">			
+	<div name="location-view" class="location-view">
+		Estimated time until you Arrive!			
 		<div name="col-xs-12">
 			{{eta.distance.text}}
 			<br>
 			{{eta.duration.text}}
 		</div>		
 		<!--Doesnt work on android device. Maybe because of an external api call?-->				
-	</div>
-</template>
-
-<template name="tabBody2">
-	Please let us know your approximate arrival time
-	<div>
-		<input type="text" placeholder="Estimated Arrival Time"/><br>					
 	</div>
 </template>

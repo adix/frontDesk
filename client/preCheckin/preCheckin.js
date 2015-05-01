@@ -3,17 +3,19 @@
 Meteor.subscribe('hotels');
 //Meteor.subscribe('userData');
 
-Template.tabs.events({
-	'click .tabs li' : function (event, template) {
-		Session.set("activeTab", $(event.currentTarget).attr("activetab"));
-  }
-});
-
+Template.tabs.rendered = function() {
+  Session.set("activeTab",'tab2');
+};
 
 Template.tabs.activeTabIs = function(tab) {
  	return Session.get("activeTab") === tab;
 }
 
+Template.tabs.events({
+	'click .tabs li' : function (event, template) {
+		Session.set("activeTab", $(event.currentTarget).attr("activetab"));
+  }
+});
 
 Template.preCheckin.helpers({
 	//
@@ -22,6 +24,9 @@ Template.preCheckin.helpers({
 		Session.set('location',Geolocation.latLng() || { lat: 0, lng: 0 });
 		//return Geolocation.latLng() || { lat: 0, lng: 0 }
 		return Session.get('location');
+	},
+	hotelAddress : function() {
+		return Session.get('hotelAddress');
 	},		
 	//change fetch only users current hotel
 	hotels: function(){
@@ -31,7 +36,7 @@ Template.preCheckin.helpers({
 	}
 })
 
-Template.tabBody1.helpers({
+Template.tabBody2.helpers({
 	eta	: function(){
 		return Session.get('eta');
 		console.log(Session.get('eta'));		
@@ -40,12 +45,15 @@ Template.tabBody1.helpers({
 
 //How to write small modular functions to do everything that you have to do.
 Template.preCheckin.events({	
-	'click .enable-location': function(){		
-		var hotels = Hotels.find().fetch();
-		
+	'click .enable-location': function(){					
+
 		//Currently gets address of first hotel. Need to change it to fetch current hotel from current user profile.
+		Session.set('hotels',Hotels.find().fetch());
+		var hotels = Session.get('hotels');
 		var hotelLat = hotels[0].address.lat;
 		var hotelLng = hotels[0].address.lng;
+
+		Session.set('hotelAddress',hotels[0].address);
 
 		console.log("Share Location clicked");		
 		console.log("Fetching location from mdg:geolocation");
