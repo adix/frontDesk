@@ -3,6 +3,13 @@ If the user is logged in and hotel is selected, the page is skipped.
 If the hotel is not selected page populates itself-->
 
 <template name="hotelSelect">
+
+	<!-- part of dynamic layout -->
+	<div class="row">		
+		<div class="col-xs-2"><a href="{{pathFor 'login'}}">Check-Out</a></div>
+		<div class="col-xs-8">Front Desk</div>
+		<div class="col-xs-2">history</div>			
+	</div>	
 	<!--<div class="hotels-info">
 		<h2>Profile Information</h2>
 	</div>-->
