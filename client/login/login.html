@@ -1,10 +1,13 @@
 <!-- This is the / path. 
 If the user is already logged in, the page is skipped entirely
 If the user is not logged in this page populates itself-->
-<template name="login">
-	<div class="google-facebook">
-		<a href="{{pathFor 'hotelSelect'}}"><h1>Login</h1>
-		</a>
-	{{> loginButtons}}
+<template name="login">	
+	<div class="row">
+		<div class="col">
+			<img src="img/app/frontdesklogo.png">
+		</div>	
+	</div>
+	<div class="row google-facebook">		
+		{{> loginButtons}}
 	</div>	
 </template>
