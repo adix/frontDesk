@@ -19,7 +19,6 @@ input[type=text]{
   } 
 
   input[type=date]{
-
     height: 100px; 
     width: 135px; 
     background-color: transparent;  
@@ -31,4 +30,16 @@ input[type=text]{
 
  .top-buffer{ 
     margin-top:30px; 
+}
+
+.hotelSelectForm{
+  font-size: 200%;
+}
+
+.dropdown{
+  font-size: 70%; 
+}
+
+.smaller-font{
+ font-size: 60%; 
 }

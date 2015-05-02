@@ -17,14 +17,18 @@ If the hotel is not selected page populates itself-->
 	
 	<div class="stay-details">
 		  <div class="row top-buffer">
-		  Hotel Name : 
-		  <select name="listOfHotels" class="dropdown">
-		  	{{#each allHotels}}	
-		  	  <option value='{{_id.valueOf}}'>
-				Hotel Name	
-			  </option>
-			{{/each}}		
-		  </select>
+			  <div class="col-xs-4">
+			  	<div class="smaller-font"> Hotel Name </div>
+			  </div>
+			  <div class="col-xs-8">
+			  <select name="listOfHotels" class="dropdown">
+			  	{{#each allHotels}}	
+			  	  <option value='{{_id.valueOf}}'>
+					{{display_name}}
+				  </option>
+				{{/each}}		
+			  </select>
+			  </div>
 		  </div>
 		  <div class="row top-buffer">
 		  	<input name="startdate" type="date" class="std-text col" placeholder="Start Date" required/>
