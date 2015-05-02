@@ -1,5 +1,4 @@
 input[type=text]{
-
     height: 50px; 
     width: 275px; 
     background-color: transparent;  
@@ -10,7 +9,6 @@ input[type=text]{
   } 
 
   input[type=label]{
-
     height: 50px; 
     width: 275px; 
     background-color: transparent;  
@@ -29,12 +27,8 @@ input[type=text]{
     border-width: 0px 0px 2px 0px;  
     border-color: #E1BC54; 
     outline:0; 
-  } 
-
-  input[placeholder='Hotel Name']{
-  	font-color:#000000;
-  	font-family: ‘Palatino Linotype’, ‘Book Antiqua’, Palatino, serif;
   }
 
-
- 
+ .top-buffer{ 
+    margin-top:30px; 
+}

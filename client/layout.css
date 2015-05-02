@@ -1,25 +1,28 @@
-body #container {
-    max-width: 375px;
+@media screen and (min-width: 376px) {
+    width: 375px;
+    min-height: 667px;
     max-height: 667px;
     margin: 0 auto;
     background-color:#FFFFFF;
-    color:#000000;	
+    color:#000000;  
     border-style: solid;
-    /*overflow: hidden; Figure this out later*/
+    overflow: hidden;
   }
+}
 
 #content-container {
+    display: inline-block;
+    text-align: center;
+    width: 375px;
     color:#000000;
-    background-color: #FFFFF0;
-    max-width: 375px;
-    max-height: 667px;
+    background-color: #FFFFF0;    
     margin: 0 auto;
-  
+    overflow-x: hidden;
 }
 
 .content-scrollable {
   background: @color-empty;
-  overflow-x: hidden;
+  overflow-x: auto;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
