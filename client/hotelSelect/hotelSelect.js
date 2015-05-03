@@ -18,7 +18,8 @@ Template.hotelSelect.events({
         	{$set: {"profile.currentHotel":
         				{hotel_id: event.target.listOfHotels.value,
         				stateDate: event.target.startdate.value,
-        			    endDate: event.target.enddate.value}
+        			    endDate: event.target.enddate.value,
+                        checkin: ''}
         		   }
         	});
         event.preventDefault();
