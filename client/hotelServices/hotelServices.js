@@ -7,3 +7,13 @@ Template.hotelServices.helpers({
 		return Hotels.find();		
 	}
 });
+
+Template.hotelServices.events({
+	'click .checkout': function(){
+		Meteor.call("clearCurrentHotel", function(error,results){
+			if(results){
+				Router.go('/hotelSelect');
+			}
+		});				
+	}
+})
