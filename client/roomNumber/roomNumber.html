@@ -1,7 +1,19 @@
 <template name="roomNumber">
-	<div class="left-corner">
-		<a href="{{pathFor 'currentlyAt'}}"><h1>Back</h1></a>
+
+
+	<div class="row topbar">	
+		<div class="col-xs-2 bar-xs-2 rightBorder"><a href="{{pathFor 'currentlyAt'}}"><img src='img/app/back.png' width=30px height=30px/></a></div>
+		<center><div class="col-xs-2 bar-xs-8 rightBorder"><img src='img/app/frontdesk.png' width=200px height=200px/ align=top></div></center>
+		<div class="col-xs-2 bar-xs-2"><a href="{{pathFor 'hotelSelect'}}"><img src='img/app/history.png' width=30px height=30px/></a></div>
 	</div>
+
+	<!--<div class="left-corner">
+		<a href="{{pathFor 'currentlyAt'}}"><h1>Back</h1></a>
+	</div>-->
+
+<div class="left-corner">
 	<input placeholder="Enter room number"/>
 	<a href="{{pathFor 'hotelServices'}}"><h1>Next</h1></a>	
+
+</div>
 </template>
