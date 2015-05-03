@@ -31,10 +31,9 @@ input[type=text]{
     outline:0; 
   }
 
- .top-buffer{ 
-    margin-top:30px; 
-}
-
+ .top-buffer{
+  margin-top:30px;
+ }
 .hotelSelectForm{
   font-size: 200%;
 }
@@ -46,3 +45,4 @@ input[type=text]{
 .smaller-font{
  font-size: 60%; 
 }
+
