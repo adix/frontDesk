@@ -42,7 +42,7 @@ body  #container{
 
 .rightBorder{
   border-style: solid;  
-  border-width: 0px 1px 0px 0px;  
+  border-width: 0px 0px 0px 0px;  
   border-color: #E1BC54; 
 }
 
@@ -52,8 +52,9 @@ body  #container{
   color: #E1BC54;
   font-size: 20px;
   background: #24272C;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+  padding: 20px 166px 20px 166px;
+  border: none;
+
 }
 
 .btn:hover {
