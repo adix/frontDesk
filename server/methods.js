@@ -8,13 +8,33 @@ Meteor.methods({
         this.unblock();
         return  Meteor.http.call("GET", "https://maps.googleapis.com/maps/api/distancematrix/json?origins="+userLat+","+userLng+"&destinations="+hotelLat+","+hotelLng);        
     },
-    'updateUserEta' : function(eta){
+    'updateUserEta' : function(eta, arrivalDate, arrivalTime){
         console.log("IN the serverererere");
         console.log(Meteor.user().profile.currentHotel.hotel_id);
         //var id; id = new ObjectID(Meteor.user().profile.currentHotel.hotel_id); 
         //console.log(id);
+        var duration = "";
+        var distance = "";
+        
+        if(eta){
+            distance = eta.distance.text;
+            duration = eta.duration.text;
+        }
+
         return Hotels.update({ _id: new Meteor.Collection.ObjectID(Meteor.user().profile.currentHotel.hotel_id)},
-            {$addToSet:{ServiceHistory:{user_id:Meteor.userId(),user_name:Meteor.user().profile.name,service_performed:{name: "PreCheckin",eta:{distance: eta.distance.text,duration: eta.duration.text},createdAt:Date()}}}}
+            {$addToSet:{ServiceHistory:
+                {user_id:Meteor.userId(),
+                user_name:Meteor.user().profile.name,
+                service_performed:
+                    {name: "PreCheckin",
+                    eta:{distance: distance,
+                        duration: duration,
+                        arrivalDate: arrivalDate,
+                        arrivalTime: arrivalTime},
+                    createdAt:Date()
+                    }
+                }
+            }}
         );
     },
     'setCheckinTrue' : function(){
