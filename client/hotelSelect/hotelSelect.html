@@ -18,10 +18,10 @@ If the hotel is not selected page populates itself-->
 	<div class="stay-details">
 		  <div class="row top-buffer">
 			  <div class="col-xs-4">
-			  	<div class="smaller-font"> Hotel Name </div>
+			  	<div class="smaller-font allHotelList"> Hotel Name </div>
 			  </div>
 			  <div class="col-xs-8">
-			  <select name="listOfHotels" class="dropdown">
+			  <select id="listOfHotels" class="dropdown">
 			  	{{#each allHotels}}	
 			  	  <option value='{{_id.valueOf}}'>
 					{{display_name}}
@@ -45,7 +45,7 @@ If the hotel is not selected page populates itself-->
 		  </div>
 		</div>
 
-		<input type="submit" class="button" value="Submit">				
+		<input type="submit" class="btn top-buffer" value="Submit">				
 </div>
 
 	</form>	

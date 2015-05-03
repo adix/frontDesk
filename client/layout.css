@@ -37,12 +37,31 @@ body  #container{
   color:white;  
   font-size: 15px;  
   z-index: 9999;  
-  height: 50px;
-  
+  height: 50px;  
 }
 
 .rightBorder{
   border-style: solid;  
   border-width: 0px 1px 0px 0px;  
   border-color: #E1BC54; 
+}
+
+.btn {
+  font-family: Arial;
+  width:300px;
+  color: #E1BC54;
+  font-size: 20px;
+  background: #24272C;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #4c5357;
+  background-image: -webkit-linear-gradient(top, #4c5357, #6e7173);
+  background-image: -moz-linear-gradient(top, #4c5357, #6e7173);
+  background-image: -ms-linear-gradient(top, #4c5357, #6e7173);
+  background-image: -o-linear-gradient(top, #4c5357, #6e7173);
+  background-image: linear-gradient(to bottom, #4c5357, #6e7173);
+  text-decoration: none;
 }
