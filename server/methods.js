@@ -17,6 +17,11 @@ Meteor.methods({
             {$addToSet:{ServiceHistory:{user_id:Meteor.userId(),user_name:Meteor.user().profile.name,service_performed:{name: "PreCheckin",eta:{distance: eta.distance.text,duration: eta.duration.text},createdAt:Date()}}}}
         );
     },
+    'setCheckinUser' : function(){
+        console.log("Setting Checkin User");
+        return Meteor.users.update({ _id: Meteor.userId() }, 
+            {$set: {"profile.currentHotel.checkin": 'true'}});
+    },
     //{ SomeUpdate: function(upd) { 
     //   var id; id = new ObjectID(upd['_id']); 
     //   return SomeDB.update({ _id: id }, { $set: { field: value } }, function(res) { return console.log(res); }); } }
