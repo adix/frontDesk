@@ -1,4 +1,5 @@
 input[type=text]{
+    border: none;
     height: 50px; 
     width: 275px; 
     background-color: transparent;  
@@ -9,6 +10,7 @@ input[type=text]{
   } 
 
   input[type=label]{
+    border: none;
     height: 50px; 
     width: 275px; 
     background-color: transparent;  
@@ -19,6 +21,7 @@ input[type=text]{
   } 
 
   input[type=date]{
+    border: none;
     height: 100px; 
     width: 135px; 
     background-color: transparent;  
