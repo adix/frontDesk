@@ -41,6 +41,12 @@ Template.tabBody2.helpers({
 		return Session.get('eta');
 		console.log(Session.get('eta'));		
 	},
+	arrivalTime: function(){
+		return Session.get('arrivalTime');
+	},
+	arrivalDate: function(){
+		return Session.get('arrivalDate');
+	}
 })
 
 //How to write small modular functions to do everything that you have to do.
@@ -87,16 +93,57 @@ Template.preCheckin.events({
   			//return results.data.rows[0].elements[0];
    			//setting session variable
    			Session.set('eta',results.data.rows[0].elements[0]);
+   			//Getting duration in seconds
+   			Session.set('etaSeconds',results.data.rows[0].elements[0].duration.value);			
+			// Calculating arrival time from  (Put it in a seperate function)
+			var currentTime = new Date();
+			var arrivalTime = new Date();
+			var arrivalTime = new Date(arrivalTime.setSeconds(currentTime.getSeconds() + Session.get('etaSeconds')));
+			console.log(arrivalTime);
+
+			Session.set('arrivalTime',arrivalTime.toTimeString());
+			Session.set('arrivalDate',arrivalTime.toDateString());
    			//Setting eta of user in pre-checkin service in the hotel database.			
    			//Meteor.call("updateUserEta",Session.get("eta"));
 		});
 
 		console.log(Session.get('eta'));
 	},
-	'click .share-location': function(){
-		Meteor.call("updateUserEta",Session.get("eta"));
-		Meteor.call("setCheckinTrue");		
-		Router.go('/hotelServices');
+	'click .share-location-tab2': function(){
+		if(Session.get('activeTab') == 'tab2'){
+			console.log(Session.get('activeTab'));
+			Meteor.call("updateUserEta",Session.get("eta"),Session.get('arrivalTime'),Session.get('arrivalDate'));
+			Meteor.call("setCheckinTrue");		
+			Router.go('/hotelServices');
+		} 
+		
+	},
+	'submit .share-location-tab1-form': function(){
+		if(Session.get('activeTab') == 'tab1'){
+			console.log(Session.get('activeTab'));
+			var currentDate = new Date();
+			Meteor.call("updateUserEta","",event.target.arrivalTime.value,currentDate.toDateString());
+			Meteor.call("setCheckinTrue");		
+			Router.go('/hotelServices');
+			return false;
+		}
 	}
+
 })
+
+/*
+Meteor.methods({
+  calculateArrivalTime: function (seconds){
+	console.log(seconds);
+	var currentTime = new Date();
+	var arrivalTime = arrivalTime.setSeconds(currentTime.getSeconds() + Session.get('etaSeconds'));
+	console.log(arrivalTime);
+  }
+})
+*/
+
+
+
+
+
 

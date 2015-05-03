@@ -18,8 +18,7 @@
 	</div>
 	-->
 	{{> tabs}}		
-	<!--Implement the below in a Pop up-->	
-	<input type="button" name="Share Location" value="Share Location" class="share-location"/>
+	<!--Implement the below in a Pop up-->		
 
 </template>
 
@@ -43,7 +42,10 @@
 <template name="tabBody1">
 	Please let us know your approximate arrival time
 	<div>
-		<input type="text" placeholder="Estimated Arrival Time"/><br>					
+		<form class="share-location-tab1-form">
+			<input type="text" name= "arrivalTime" placeholder="Estimated Arrival Time"/><br>			
+			<input type="submit" name="Share Location" value="Share Location" class="share-location-tab1"/>	
+		</form>		
 	</div>
 </template>
 
@@ -56,7 +58,13 @@
 			{{eta.distance.text}}
 			<br>
 			{{eta.duration.text}}
+			<br>
+			You will be arriving at the hotel on {{arrivalDate}} at
+			{{arrivalTime}}
+			<br>
+			Should we notify the hotel?
 		</div>		
+		<input type="button" name="Share Location" value="Share Location" class="share-location-tab2"/>
 		<!--Doesnt work on android device. Maybe because of an external api call?-->				
 	</div>
 </template>
