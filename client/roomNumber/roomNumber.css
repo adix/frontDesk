@@ -1,0 +1,55 @@
+.numberbox{
+	vertical-align: center;
+	width: 200px;
+	height:75px;
+	margin-right:25px;
+	text-align:center;
+
+}
+
+.roomNumber{
+	margin-top:175px;
+	margin-left:30px;
+
+}
+
+.numberBox{
+	position:absolute;
+	z-index:999;
+	margin-top:250px;
+
+}
+
+.title{
+	margin-left:150px;
+	color: #47496C;
+	text-align: center;
+	font-weight:normal;
+	margin-top: 115px;
+	z-index: 999;
+}
+
+.background{
+	background-repeat:no-repeat;
+
+
+}
+
+.back{
+	background: url(img/app/grey.gif);
+	background-repeat:no-repeat;
+	background-position:center center;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: 100% 100%;
+	
+}
+
+
+.topbox{
+	position:absolute;
+	margin-left:20px;
+	margin-right: 20px;
+	z-index:998;
+}
