@@ -95,6 +95,8 @@ Template.preCheckin.events({
 	},
 	'click .share-location': function(){
 		Meteor.call("updateUserEta",Session.get("eta"));
+		Meteor.call("setCheckinUser");		
+		Router.go('/hotelServices');
 	}
 })
 
