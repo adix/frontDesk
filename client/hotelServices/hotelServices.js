@@ -10,6 +10,7 @@ Template.hotelServices.helpers({
 
 Template.hotelServices.events({
 	'click .checkout': function(){
+		Meteor.call("checkoutService");
 		Meteor.call("clearCurrentHotel", function(error,results){
 			if(results){
 				Router.go('/hotelSelect');
