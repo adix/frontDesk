@@ -26,5 +26,8 @@ Template.hotelSelect.events({
         event.stopPropagation();
         Router.go('/currentlyAt');
         return false;
-      }
+      },
+      'click .profile': function(){
+        Router.go('/profile');              
+    }
 });
