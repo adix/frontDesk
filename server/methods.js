@@ -38,13 +38,16 @@ Meteor.methods({
         );
     },
     'checkoutService' : function(){
+        var currentTime = new Date();
         return Hotels.update({ _id: new Meteor.Collection.ObjectID(Meteor.user().profile.currentHotel.hotel_id)},
             {$addToSet:{ServiceHistory:
                 {user_id:Meteor.userId(),
                 user_name:Meteor.user().profile.name,
                 service_performed:
                     {name: "CheckOut",
-                    eta:{arrivalTime: Date()},
+                    eta:{
+                        arrivalDate: currentTime.toDateString(),
+                        arrivalTime: currentTime.toTimeString()},
                     createdAt:Date()
                     }
                 }

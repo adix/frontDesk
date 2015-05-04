@@ -124,7 +124,7 @@ Template.preCheckin.events({
 	'click .share-location-tab2': function(){
 		if(Session.get('activeTab') == 'tab2'){
 			console.log(Session.get('activeTab'));
-			Meteor.call("updateUserEta",Session.get("eta"),Session.get('arrivalTime'),Session.get('arrivalDate'));
+			Meteor.call("updateUserEta",Session.get("eta"),Session.get('arrivalDate'),Session.get('arrivalTime'));
 			Meteor.call("setCheckinTrue");		
 			Router.go('/hotelServices');
 		} 

@@ -1,18 +1,19 @@
 <template name="admin">
-	<div class="row">	
-		
+	<h3>Services Feed</h3>
+	<hr>
+	<div class="row">
 		{{#each hotels}}	
 			{{#each ServiceHistory}}
 			<div class="col-md-8">	
 				{{user_name}}
 				<br>
-				{{service_performed.name}}
-				{{service_performed.eta.duration}}
-				{{service_performed.eta.distance}}
-				{{service_performed.eta.arrivalDate}}
-				{{service_performed.eta.arrivalTime}}
+				<h4>{{service_performed.name}}</h4>
+				Time: {{service_performed.eta.arrivalTime}}
 				<br>
-			</div>						
+				Date: {{service_performed.eta.arrivalDate}}
+				<br>				
+			</div>	
+			<hr>					
 			{{/each}}
 		{{/each}}					
 		<div class="col-md-4">
