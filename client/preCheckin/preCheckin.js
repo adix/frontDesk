@@ -58,7 +58,7 @@ Template.preCheckin.rendered = function() {
 
 //How to write small modular functions to do everything that you have to do.
 Template.preCheckin.events({	
-	'click .enable-location': function(){					
+	'click .share-location': function(){					
 
 		//Currently gets address of first hotel. Need to change it to fetch current hotel from current user profile.
 		Session.set('hotels',Hotels.find().fetch());
