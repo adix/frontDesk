@@ -34,6 +34,7 @@ Template.preCheckin.helpers({
 	hotels: function(){
 		//console.log("In the function");
 		//console.log(Hotels.find().fetch()); 
+		//console.log(new Meteor.Collection.ObjectID(Meteor.user().profile.currentHotel.hotel_id));
 		return Hotels.find();
 	}
 })
@@ -61,7 +62,8 @@ Template.preCheckin.events({
 	'click .share-location': function(){					
 
 		//Currently gets address of first hotel. Need to change it to fetch current hotel from current user profile.
-		Session.set('hotels',Hotels.find().fetch());
+		Session.set('hotels',Hotels.find({"_id": new Meteor.Collection.ObjectID(Meteor.user().profile.currentHotel.hotel_id)}).fetch());
+		console.log(Session.get('hotels'))
 		var hotels = Session.get('hotels');
 		var hotelLat = hotels[0].address.lat;
 		var hotelLng = hotels[0].address.lng;
