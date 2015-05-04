@@ -15,5 +15,8 @@ Template.hotelServices.events({
 				Router.go('/hotelSelect');
 			}
 		});				
+	},
+	'click .profile': function(){
+		Router.go('/profile');				
 	}
 })
