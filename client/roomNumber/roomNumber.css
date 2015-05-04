@@ -3,6 +3,7 @@
 	width: 200px;
 	height:75px;
 	margin-right:25px;
+	margin-top:-350px;
 	text-align:center;
 
 }
@@ -13,12 +14,6 @@
 
 }
 
-.numberBox{
-	position:absolute;
-	z-index:999;
-	margin-top:250px;
-
-}
 
 .title{
 	margin-left:150px;
@@ -29,11 +24,6 @@
 	z-index: 999;
 }
 
-.background{
-	background-repeat:no-repeat;
-
-
-}
 
 .back{
 	background: url(img/app/grey.gif);
@@ -48,8 +38,14 @@
 
 
 .topbox{
-	position:absolute;
+	position:inherit;
 	margin-left:20px;
 	margin-right: 20px;
-	z-index:998;
+	z-index:8;
+}
+
+img.bottombox{
+	width:325px;
+	margin-top:-90px;
+	margin-bottom:-95.5px;
 }
