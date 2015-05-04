@@ -50,8 +50,12 @@
 </template>
 
 <template name="tabBody2">
-	Tap to Agree to Share Location
-	<input type="button" name="Share Location" value="Enable Sharing" class="enable-location"/>
+	<div class="row">
+	<div class="col-xs-9"> Click here to share location and calculate ETA </div>
+	<div class="col-xs-3">	
+	<input type="button" name="Share Location" value="Share Location" class="btn share-location"/>
+	</div>	
+	</div>
 	<div name="location-view" class="location-view">
 		Estimated time until you Arrive!			
 		<div name="col-xs-12">
@@ -64,7 +68,7 @@
 			<br>
 			Should we notify the hotel?
 		</div>		
-		<input type="button" name="Share Location" value="Share Location" class="share-location-tab2"/>
+		<input type="button" name="Checkin" value="Pre-Check In!" class="btn share-location-tab2"/>
 		<!--Doesnt work on android device. Maybe because of an external api call?-->				
 	</div>
 </template>
