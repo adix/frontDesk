@@ -67,3 +67,8 @@ body  #container{
   background-image: linear-gradient(to bottom, #4c5357, #6e7173);
   text-decoration: none;
 }
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
