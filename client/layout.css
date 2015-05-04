@@ -1,5 +1,5 @@
 @media screen and (min-width: 376px) {
-body  #container{    
+body  #container-fluid{    
     width: 400px;
     min-height: 667px;
     max-height: 667px;
@@ -9,6 +9,10 @@ body  #container{
     border-style: solid;
     overflow: hidden;
   }
+
+.topbar {
+    width:400px;
+}
 }
 
 @font-face {
@@ -34,11 +38,17 @@ body  #container{
 }
 
 .topbar {
+  top:0;
+  right:0;
+  bottom: auto;
+  left:0;
   background-color: black;
   color:white;  
-  font-size: 15px;  
+  font-size: 15px; 
   z-index: 9999;  
-  height: 50px;  
+  height: 3em;  
+  text-align: center;
+  margin: 0 auto;
 }
 
 .rightBorder{
