@@ -3,6 +3,8 @@
 Meteor.subscribe('hotels');
 //Meteor.subscribe('userData');
 
+
+
 Template.tabs.rendered = function() {
   Session.set("activeTab",'tab2');
 };
@@ -49,6 +51,11 @@ Template.tabBody2.helpers({
 	}
 })
 
+//When page is rendered, hide the location-view
+Template.preCheckin.rendered = function() {
+    $(".location-view").hide();
+}
+
 //How to write small modular functions to do everything that you have to do.
 Template.preCheckin.events({	
 	'click .enable-location': function(){					
@@ -60,6 +67,9 @@ Template.preCheckin.events({
 		var hotelLng = hotels[0].address.lng;
 
 		Session.set('hotelAddress',hotels[0].address);
+
+		//Hide Location Div
+		$(".location-view").show();
 
 		console.log("Share Location clicked");		
 		console.log("Fetching location from mdg:geolocation");
