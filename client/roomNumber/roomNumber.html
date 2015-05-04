@@ -1,23 +1,28 @@
 <template name="roomNumber">
 
 
-	<div class="row topbar">	
-		<div class="col-xs-2 bar-xs-2 rightBorder"><a href="{{pathFor 'currentlyAt'}}"><img src='img/app/back.png' width=30px height=30px/></a></div>
-		<center><div class="col-xs-2 bar-xs-8 rightBorder"><img src='img/app/frontdesk.png' width=200px height=200px/ align=top></div></center>
-		<div class="col-xs-2 bar-xs-2"><a href="{{pathFor 'hotelSelect'}}"><img src='img/app/history.png' width=30px height=30px/></a></div>
+	<div class="row roomNumbertop">	
+		<div class="col-xs-2 bar-xs-2 rightBorder"><a href="{{pathFor 'login'}}"><img src='img/app/back.png' width=30px height=30px/></a></div>
+		<center><div class="col-xs-8 bar-xs-8 rightBorder"><img src='img/app/frontdesk.png' width=200px height=200px/ align=top></div></center>
+		<div class="col-xs-2 bar-xs-2"><img src='img/app/history.png' width=30px height=30px/></div>
 	</div>
 
 <div class="row back nopadding" style="height:665px">
-
-<div class="left-corner roomNumbers">
-	<h1 class='title'>Room Number</h1>
-	<center><img class="topbox" src="img/app/97.gif" style= height:200px width:350px/></center>
-	<center><img class="bottombox" src="img/app/98.gif" /></center>
-	<!--<center><input placeholder="0" class="numberbox"/></center>-->
-	
-	<a href="{{pathFor 'hotelServices'}}"><h1>Next</h1></a>	
-
+	<div class='roomNum'>
+	<h2>Room Number</h2>
 </div>
-<center><input placeholder="0" class="numberbox"/></center>
+<div class="left-corner roomNumbers">
+
+	<center><img class="topbox" src="img/app/97.gif" style= height:200px width:350px/></center>
+	<center><img class="bottombox" src="img/app/98.gif" /></center>	
+	
+</div>
+
+<center><input placeholder="0" class="numberbox" /></center>
+
+<div class="next">
+	<a href="{{pathFor 'hotelServices'}}"><h3 style= color:#000000 >Enter</h3></a>
+</div>
+
 </div>
 </template>

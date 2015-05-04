@@ -1,27 +1,28 @@
+.roomNumbertop{
+	background-color:#24272C; 
+}
+
 .numberbox{
 	vertical-align: center;
 	width: 200px;
 	height:75px;
-	margin-right:25px;
-	margin-top:-350px;
+	margin-top:-225px;
 	text-align:center;
+	font-size:25px;
+	position:relative;
+	z-index:999;
 
 }
 
-.roomNumber{
-	margin-top:175px;
-	margin-left:30px;
-
-}
 
 
-.title{
-	margin-left:150px;
+.roomNum{
 	color: #47496C;
 	text-align: center;
 	font-weight:normal;
-	margin-top: 115px;
-	z-index: 999;
+	position: relative;
+	top: 122px;
+	z-index: 10;
 }
 
 
@@ -39,13 +40,21 @@
 
 .topbox{
 	position:inherit;
+	margin-top:50px;
 	margin-left:20px;
 	margin-right: 20px;
 	z-index:8;
 }
 
 img.bottombox{
-	width:325px;
+	width:338px;
 	margin-top:-90px;
-	margin-bottom:-95.5px;
+	margin-bottom:-109.5px;
+	margin-right:7px;
+
+}
+
+.next{
+	margin-top:-50px;
+	
 }
